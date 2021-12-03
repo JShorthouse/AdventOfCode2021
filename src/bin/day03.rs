@@ -65,12 +65,7 @@ fn p2_search<const NUM_BITS: usize>(inputs: Vec<[bool; NUM_BITS]>, find_most_com
     let mut found_bits = None;
     let mut remaining = inputs;
     for cur_bit in 0..NUM_BITS {
-        let mut bit_count = 0;
-        for bits in &remaining {
-            if bits[cur_bit] == true {
-                bit_count += 1;
-            }
-        }
+        let bit_count = remaining.iter().filter(|b| b[cur_bit]).count();
 
         let mut target_bit = false;
         if bit_count >= ((remaining.len() + 1) / 2) { // Round up division
@@ -80,19 +75,12 @@ fn p2_search<const NUM_BITS: usize>(inputs: Vec<[bool; NUM_BITS]>, find_most_com
             target_bit = !target_bit;
         }
 
-        let mut new_remaining = Vec::new();
-        for bits in remaining {
-            if bits[cur_bit] == target_bit {
-                new_remaining.push(bits);
-            }
-        }
+        remaining.retain(|b| b[cur_bit] == target_bit);
 
-        if new_remaining.len() == 1 {
-            found_bits = Some(new_remaining[0]);
+        if remaining.len() == 1 {
+            found_bits = Some(remaining[0]);
             break;
         }
-
-        remaining = new_remaining;
     }
 
     if let Some(bits) = found_bits {
