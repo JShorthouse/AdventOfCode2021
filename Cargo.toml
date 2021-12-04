@@ -4,3 +4,4 @@ version = "1.0.0"
 edition = "2018"
 
 [dependencies]
+retain_mut = "0.1.5"
