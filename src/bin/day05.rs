@@ -19,8 +19,10 @@ struct Line {
     end: Point,
 }
 
+use ahash::AHashMap;
+
 fn count_overlaps(lines: &Vec<Line>) -> i32 {
-    let mut pos_counts = HashMap::<(i32, i32), i32>::new();
+    let mut pos_counts = AHashMap::<(i32, i32), i32>::with_capacity(100000);
 
     for line in lines {
         let mut x = line.start.x;

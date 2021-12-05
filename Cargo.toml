@@ -13,3 +13,4 @@ debug = true
 [dependencies]
 retain_mut = "0.1.5"
 regex = "1.5.4"
+ahash = "0.7.6"
