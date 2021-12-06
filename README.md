@@ -13,3 +13,15 @@ Run tests:
 ```text
 cargo test
 ```
+
+Benchmarks:
+
+```text
+$ ./bench.sh
+day01: 0.001s
+day02: 0.001s
+day03: 0.001s
+day04: 0.001s
+day05: 0.012s
+day06: 0.001s
+```
