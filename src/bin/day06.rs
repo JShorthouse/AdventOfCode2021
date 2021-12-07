@@ -1,9 +1,3 @@
-use std::fs::File;
-use std::io::{
-    prelude::*,
-    BufReader,
-};
-
 use std::fs::read_to_string;
 
 fn simulate(days: usize, timers: &mut [i64; 9]) -> i64 {
@@ -16,8 +10,8 @@ fn simulate(days: usize, timers: &mut [i64; 9]) -> i64 {
 }
 
 fn main() {
-    let mut input: Vec<i32> = read_to_string("input/06.txt").unwrap().trim()
-                               .split(",").map(|s| s.parse::<i32>().unwrap()).collect();
+    let input: Vec<i32> = read_to_string("input/06.txt").unwrap().trim()
+                          .split(",").map(|s| s.parse::<i32>().unwrap()).collect();
 
     let mut timers = [0_i64; 9];
 

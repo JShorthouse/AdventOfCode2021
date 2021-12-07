@@ -5,7 +5,7 @@ use std::io::{
 };
 
 use regex::Regex;
-use std::collections::HashMap;
+use ahash::AHashMap;
 
 #[derive(Debug, Copy, Clone)]
 struct Point {
@@ -18,8 +18,6 @@ struct Line {
     start: Point,
     end: Point,
 }
-
-use ahash::AHashMap;
 
 fn count_overlaps(lines: &Vec<Line>) -> i32 {
     let mut pos_counts = AHashMap::<(i32, i32), i32>::with_capacity(100000);
@@ -49,7 +47,7 @@ fn count_overlaps(lines: &Vec<Line>) -> i32 {
     }
 
     let mut count = 0;
-    for (key, val) in &pos_counts {
+    for (_, val) in &pos_counts {
         if *val > 1 { count += 1; }
     }
     return count;
