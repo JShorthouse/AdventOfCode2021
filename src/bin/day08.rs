@@ -97,20 +97,13 @@ fn main() {
         let mut six_nine_zero = Vec::<&HashSet<char>>::new();
 
         for signal in &signals.all {
-            if signal.len() == 2 {
-                one = &signal;
-            }
-            if signal.len() == 3 {
-                seven = &signal;
-            }
-            if signal.len() == 4 {
-                four = &signal;
-            }
-            if signal.len() == 5 {
-                two_three_five.push(&signal);
-            }
-            if signal.len() == 6 {
-                six_nine_zero.push(&signal);
+            match signal.len() {
+                2 => one = &signal,
+                3 => seven = &signal,
+                4 => four = &signal,
+                5 => two_three_five.push(&signal),
+                6 => six_nine_zero.push(&signal),
+                _ => (),
             }
         }
 
