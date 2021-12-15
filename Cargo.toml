@@ -14,3 +14,4 @@ debug = true
 retain_mut = "0.1.5"
 regex = "1.5.4"
 ahash = "0.7.6"
+keyed_priority_queue = "0.4.1"
